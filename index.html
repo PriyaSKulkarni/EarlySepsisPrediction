@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<title>Sepsis Prediction</title>
+<style>
+.header-right li{
+list-style:none;
+float:right;
+padding-top:5px;
+padding-right:50px;
+}
+
+header{
+	color:white;
+	height:65px;
+	background-color:#191970;
+	width:100%;
+    position:fixed;
+  	top:0px;
+  	
+	 }
+
+.header-left{
+	font-family:"rockwell";
+	font-size:30px;
+	padding:10px 48px;
+	float:left;
+	opacity:0.8;
+}
+
+.header-right a{
+	font-family:"rockwell";	
+	text-decoration: none;
+	color:white;
+	display:block;
+	margin:0;
+	padding-top:3px;
+	font-weight:bold;
+	opacity:0.8;
+}
+  input[type=number], select {
+ width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+width:50%;
+  font-family:"rockwell";
+  background-color: #191970;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.con{
+   /* padding-top:100px;*/
+	width:100%;
+	margin:0 auto;
+	font-family:"rockwell";
+	padding: 20px 0px 90px 30px;
+	border-color: #FFFFFF #327CB5 #327CB5 #FFFFFF;
+    border-width: 1px;
+    box-shadow: 1px 1px 3px #333333;
+	  background-size: cover;
+	  color:#191970;
+	  background-color:#A2B3FB;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+.con1{
+padding: 0px 60px 0px 30px;
+}
+.sub{
+padding-left:30%;
+}
+img{
+padding-top:60px;
+ width:100%;height:300px;
+}
+footer{
+	background-color:#191970;
+	height:65px;
+	width:100%;
+}
+
+.footer-left p{
+	font-family:"mistral";
+	font-size:20px;
+	color:white;
+	padding-left:15px;
+	float:left;
+	opacity:0.9;
+	opacity:0.8;
+}
+
+.footer-end {
+	color:white;
+	padding-left:200px;
+	padding-top:20px;
+	float:left;
+	opacity:0.8;
+	}
+
+.footer-right{
+	color:white;
+	font-size:20px;
+	padding-top:20px;
+	padding-right:30px;
+	font-family:"eras demi itc";
+	letter-spacing:6px;
+	float:right;
+	opacity:0.8;
+}
+button{
+background-color:#191970;
+border:none;
+font-size:18px;
+font-family:"rockwell";	
+text-decoration: none;
+color:white;
+display:block;
+margin:0;
+opacity:0.8;
+  
+}
+</style>
+<body>
+<header>
+	<div class="header-left">SEPSIS PREDICTION</div>
+	<div class="header-right">
+		<ul>
+		<li><a href="/" class="dropdown-item">Logout</a></li>
+		<li><a href="/about" class="dropdown-item">About</a></li>
+		</ul>
+	</div>
+</header>
+<img src="{{url_for('static',filename = 'backg.png')}}" alt="Italian Trulli">
+<div class="con">
+
+<h1>Enter details of the patient : </h1>
+<div class="con1">
+<form action="/predict" method="POST">
+
+  <label for="O2Sat">O2Sat : </label>
+  <input type="number" step="any" id="O2Sat" name="O2Sat" placeholder="Oxgyen Saturation.."><br>
+   <label for="Temp">Temperature : </label>
+  <input type="number" step="any" id="Temp" name="Temp" placeholder="Temp..."><br>
+  <label for="SBP">SBP : </label>
+  <input type="number" step="any"  id="SBP" name="SBP" placeholder="SBP..."><br>
+  <label for="HCO3">HCO3 : </label>
+  <input type="number" step="any" id="HCO3" name="HCO3" placeholder="HCO3..."><br>
+  <label for="SaO2">SaO2 : </label>
+  <input type="number" step="any"id="SaO2" name="SaO2" placeholder="SaO2..."><br>
+   <label for="BUN">BUN : </label>
+  <input type="number" step="any"  id="BUN" name="BUN" placeholder="BUN..."><br>
+   <label for="PTT">PTT : </label>
+  <input type="number" step="any"  id="PTT" name="PTT" placeholder="PTT..."><br>
+   <label for="Alkalinephos">Alkalinephos : </label>
+  <input type="number" step="any"  id="Alkalinephos" name="Alkalinephos" placeholder="Alkalinephos..."><br>
+   <label for="Calcium">Calcium : </label>
+  <input type="number"  step="any" id="Calcium" name="Calcium" placeholder="Calcium..."><br>
+   <label for="Chloride">Chloride : </label>
+  <input type="number" step="any"  id="Chloride" name="Chloride" placeholder="Chloride..."><br>
+   <label for="Creatinine">Creatinine : </label>
+  <input type="number" step="any"  id="Creatinine" name="Creatinine" placeholder="Creatinine..."><br>
+  <label for="Glucose">Glucose : </label>
+  <input type="number" id="Glucose" name="Glucose" placeholder="Glucose..."><br>
+   <label for="Bilirubin_total">Bilirubin_total : </label>
+  <input type="number" step="any" id="Bilirubin_total" name="Bilirubin_total" placeholder="Bilirubin_total..."><br>
+   <label for="WBC">WBC : </label>
+  <input type="number" step="any" id="WBC" name="WBC" placeholder="WBC..."><br>
+   <label for="Platelets">Platelets : </label>
+  <input type="number" step="any" id="Platelets" name="Platelets" placeholder="Platelets..."><br>
+  <div class="sub">
+  <input type="submit" value="Submit">
+  </div>
+</form>
+</div>
+</div>
+<footer>
+			<div class="footer-left">
+				<p>We are in this together
+				we will get through this together</p>
+			</div>
+
+			<div class="footer-end">
+				Copyright © 2021 All Rights Reserved
+			</div>
+			<div class=" footer-right">
+				Sepsis Prediction
+			</div>
+
+	</footer>
+</body>
+</html>

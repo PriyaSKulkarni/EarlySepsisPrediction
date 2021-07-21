@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<title>Sepsis Prediction</title>
+<style>
+.header-right li{
+list-style:none;
+float:right;
+padding-top:5px;
+padding-right:50px;
+}
+
+header{
+	color:white;
+	height:65px;
+	background-color:#191970;
+	width:100%;
+    position:fixed;
+  	top:0px;
+  	
+	 }
+
+.header-left{
+	font-family:"rockwell";
+	font-size:30px;
+	padding:10px 48px;
+	float:left;
+	opacity:0.8;
+}
+
+.header-right a{
+	font-family:"rockwell";	
+	text-decoration: none;
+	color:white;
+	display:block;
+	margin:0;
+	padding-top:3px;
+	font-weight:bold;
+	opacity:0.8;
+}
+body {font-family:"rockwell";
+background-color:#A2B3FB;}
+
+.con{
+   padding-top:50px;
+   padding-left:30px;
+   padding-bottom:40px;
+	width:100%;
+	margin:0 auto;
+	font-family:"rockwell";
+	/*padding: 20px 0px 90px 30px;*/
+	border-color: #FFFFFF #327CB5 #327CB5 #FFFFFF;
+    border-width: 1px;
+    box-shadow: 1px 1px 3px #333333;
+	  background-size: cover;
+	  color:#191970;
+	  background-color:#A2B3FB;
+	  height:100%;
+}
+
+img{
+padding-top:50px;
+ width:100%;height:200px;
+}
+footer{
+	background-color:#191970;
+	height:65px;
+	width:100%;
+}
+
+.footer-left p{
+	font-family:"mistral";
+	font-size:20px;
+	color:white;
+	padding-left:15px;
+	float:left;
+	opacity:0.9;
+	opacity:0.8;
+}
+
+.footer-end {
+	color:white;
+	padding-left:200px;
+	padding-top:20px;
+	float:left;
+	opacity:0.8;
+	}
+
+.footer-right{
+	color:white;
+	font-size:20px;
+	padding-top:20px;
+	padding-right:30px;
+	font-family:"eras demi itc";
+	letter-spacing:6px;
+	float:right;
+	opacity:0.8;
+}
+
+button{
+background-color:#191970;
+border:none;
+font-size:18px;
+font-family:"rockwell";	
+text-decoration: none;
+color:white;
+display:block;
+margin:0;
+opacity:0.8;
+  
+}
+</style>
+<body>
+<header>
+	<div class="header-left">SEPSIS PREDICTION</div>
+	<div class="header-right">
+		<ul>
+		<li><a href="/" class="dropdown-item">Logout</a></li>
+		<li><form action="/index" method="POST"><button type="submit">Prediction</button></li>
+		<li><a href="/about" class="dropdown-item">About</a></li>
+		</ul>
+	</div>
+</header>
+<img src="{{url_for('static',filename = 'sepsis.png')}}" alt="Italian Trulli">
+<div class="con">
+<p style="display:inline;font-size:50px;">The System predicts that the Patient is having </p>
+<p style="display:inline;color:red;font-size:70px;">{{prediction}} </p>
+</div>
+<footer>
+			<div class="footer-left">
+				<p>We are in this together
+				we will get through this together</p>
+			</div>
+
+			<div class="footer-end">
+				Copyright © 2021 All Rights Reserved
+			</div>
+			<div class=" footer-right">
+				Sepsis Prediction
+			</div>
+
+	</footer>
+</body>
+</html>
